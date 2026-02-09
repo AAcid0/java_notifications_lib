@@ -1,6 +1,6 @@
-package com.aacid0.ntf_library.shared.exceptions.push.validation;
+package com.aacid0.ntf_library.domain.exceptions.push.validation;
 
-import com.aacid0.ntf_library.shared.exceptions.push.PushException;
+import com.aacid0.ntf_library.domain.exceptions.push.PushException;
 
 public class EmptyPushTitleException extends PushException {
     public EmptyPushTitleException() {

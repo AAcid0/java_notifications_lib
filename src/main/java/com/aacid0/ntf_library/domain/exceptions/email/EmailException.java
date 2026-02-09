@@ -1,4 +1,4 @@
-package com.aacid0.ntf_library.shared.exceptions.email;
+package com.aacid0.ntf_library.domain.exceptions.email;
 
 public abstract class EmailException extends RuntimeException {
     public EmailException(String message) {

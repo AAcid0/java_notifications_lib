@@ -3,8 +3,8 @@ package com.aacid0.ntf_library.domain.model.content;
 import java.io.File;
 import java.util.List;
 
-import com.aacid0.ntf_library.shared.exceptions.email.validation.EmptyEmailBodyException;
-import com.aacid0.ntf_library.shared.exceptions.email.validation.EmptyEmailSubjectException;
+import com.aacid0.ntf_library.domain.exceptions.email.validation.EmptyEmailBodyException;
+import com.aacid0.ntf_library.domain.exceptions.email.validation.EmptyEmailSubjectException;
 
 import lombok.Builder;
 import lombok.NonNull;

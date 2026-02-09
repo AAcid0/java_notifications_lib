@@ -1,8 +1,8 @@
 package com.aacid0.ntf_library.domain.model.content;
 
-import com.aacid0.ntf_library.shared.exceptions.email.validation.EmptyEmailBodyException;
-import com.aacid0.ntf_library.shared.exceptions.sms.validation.EmptySmsRecipientPhoneException;
-import com.aacid0.ntf_library.shared.exceptions.sms.validation.EmptySmsSenderException;
+import com.aacid0.ntf_library.domain.exceptions.email.validation.EmptyEmailBodyException;
+import com.aacid0.ntf_library.domain.exceptions.sms.validation.EmptySmsRecipientPhoneException;
+import com.aacid0.ntf_library.domain.exceptions.sms.validation.EmptySmsSenderException;
 
 import lombok.Builder;
 import lombok.Value;

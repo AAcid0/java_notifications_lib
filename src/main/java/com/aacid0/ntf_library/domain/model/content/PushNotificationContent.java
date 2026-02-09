@@ -3,9 +3,9 @@ package com.aacid0.ntf_library.domain.model.content;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.aacid0.ntf_library.shared.exceptions.push.validation.EmptyPushBodyException;
-import com.aacid0.ntf_library.shared.exceptions.push.validation.EmptyPushRecipientException;
-import com.aacid0.ntf_library.shared.exceptions.push.validation.EmptyPushTitleException;
+import com.aacid0.ntf_library.domain.exceptions.push.validation.EmptyPushBodyException;
+import com.aacid0.ntf_library.domain.exceptions.push.validation.EmptyPushRecipientException;
+import com.aacid0.ntf_library.domain.exceptions.push.validation.EmptyPushTitleException;
 
 import lombok.Builder;
 import lombok.NonNull;

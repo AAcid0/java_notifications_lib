@@ -1,4 +1,4 @@
-package com.aacid0.ntf_library.shared.exceptions.push;
+package com.aacid0.ntf_library.domain.exceptions.push;
 
 public abstract class PushException extends RuntimeException {
     public PushException(String message) {
