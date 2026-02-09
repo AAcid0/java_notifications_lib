@@ -13,7 +13,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public final class PushNotificationContent implements Content {
+public final class PushContent implements Content {
     @NonNull
     String recipient;
 
@@ -32,7 +32,7 @@ public final class PushNotificationContent implements Content {
         private String body;
         private Map<String, String> data;
 
-        public PushNotificationContent build() {
+        public PushContent build() {
             if (recipient == null || recipient.isBlank()) {
                 throw new EmptyPushRecipientException();
             }
@@ -45,7 +45,7 @@ public final class PushNotificationContent implements Content {
 
             Map<String, String> finalData = (this.data == null) ? new HashMap<>() : this.data;
 
-            return new PushNotificationContent(recipient, title, body, finalData);
+            return new PushContent(recipient, title, body, finalData);
         }
     }
 }

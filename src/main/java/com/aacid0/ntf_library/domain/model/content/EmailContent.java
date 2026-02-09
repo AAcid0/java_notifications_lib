@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import com.aacid0.ntf_library.domain.exceptions.email.validation.EmptyEmailBodyException;
+import com.aacid0.ntf_library.domain.exceptions.email.validation.EmptyEmailRecipientException;
 import com.aacid0.ntf_library.domain.exceptions.email.validation.EmptyEmailSubjectException;
 
 import lombok.Builder;
@@ -15,10 +16,13 @@ import lombok.Value;
 public final class EmailContent implements Content {
 
     @NonNull
+    String recipient;
+
+    @NonNull
     String subject;
-    @NonNull
+
     String bodyHtml;
-    @NonNull
+
     String bodyText;
     List<File> attachments;
     List<String> cc;
@@ -26,6 +30,9 @@ public final class EmailContent implements Content {
 
     public static class EmailContentBuilder {
         public EmailContent build() {
+            if (recipient == null || recipient.isBlank()) {
+                throw new EmptyEmailRecipientException();
+            }
             if (subject == null || subject.isBlank()) {
                 throw new EmptyEmailSubjectException();
             }
@@ -38,7 +45,7 @@ public final class EmailContent implements Content {
             cc = cc == null ? List.of() : cc;
             bcc = bcc == null ? List.of() : bcc;
 
-            return new EmailContent(subject, bodyHtml, bodyText, attachments, cc, bcc);
+            return new EmailContent(recipient, subject, bodyHtml, bodyText, attachments, cc, bcc);
         }
     }
 

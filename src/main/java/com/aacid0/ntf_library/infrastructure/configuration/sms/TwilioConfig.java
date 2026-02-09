@@ -8,5 +8,5 @@ import lombok.Value;
 public class TwilioConfig {
     String accountSid;
     String authToken;
-    String fromPhoneNumber;
+    String defaultFrom;
 }

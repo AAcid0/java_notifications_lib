@@ -3,6 +3,8 @@ package com.aacid0.ntf_library;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aacid0.ntf_library.domain.exceptions.NotNullNotificationException;
+import com.aacid0.ntf_library.domain.exceptions.NotSupportNotificationException;
 import com.aacid0.ntf_library.domain.model.Notification;
 import com.aacid0.ntf_library.domain.ports.out.NotificationProvider;
 
@@ -14,12 +16,17 @@ public class NotificationLibrary {
     }
 
     public void send(Notification notification) {
-        for (NotificationProvider provider : providers) {
-            if (provider.supports(notification)) {
-                provider.send(notification);
-                break;
-            }
+        if (notification == null) {
+            throw new NotNullNotificationException("La notificación no puede ser nula.");
         }
+
+        NotificationProvider provider = providers.stream()
+                .filter(p -> p.supports(notification))
+                .findFirst()
+                .orElseThrow(() -> new NotSupportNotificationException(
+                        "No se encontró un proveedor que soporte el tipo de notificación."));
+
+        provider.send(notification);
     }
 
     public static class NotificationLibraryBuilder {
